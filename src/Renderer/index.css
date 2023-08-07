@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+@layer components {
+  .minesweeper-container {
+    @apply grid gap-1 max-w-4xl mx-auto;
+    grid-auto-rows: 1fr;
+  }
+  .minesweeper-revealed {
+    @apply btn btn-outline no-animation pointer-events-none;
+  }
+  .minesweeper-cell {
+    @apply btn btn-neutral no-animation;
+  }
+  .timer {
+    @apply text-white;
+  }
+}
