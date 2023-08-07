@@ -1,9 +1,4 @@
-const {app, BrowserWindow, session} = require("electron");
-import installExtension, {
-  REACT_DEVELOPER_TOOLS,
-  REDUX_DEVTOOLS,
-  VUEJS_DEVTOOLS,
-} from "electron-devtools-installer";
+const { app, BrowserWindow, session } = require("electron");
 const path = require("path");
 const os = require("os");
 
@@ -43,24 +38,6 @@ const createWindow = () => {
 //   "/AppData/Local/Microsoft/Edge/User Data/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/4.28.0_0"
 // );
 app.on("ready", createWindow);
-
-app.on("ready", () => {
-  installExtension(REACT_DEVELOPER_TOOLS)
-    .then((name) => {
-      console.log(`Added Extension: ${name}`);
-      const win = BrowserWindow.getFocusedWindow();
-      if (win) {
-        win.webContents.on("did-frame-finish-load", () => {
-          win.webContents.once("devtools-opened", () => {
-            win.webContents.focus();
-          });
-          // open electron debug
-          win.webContents.openDevTools();
-        });
-      }
-    })
-    .catch((err) => console.log("An error occurred: ", err));
-});
 
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
