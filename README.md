@@ -1,7 +1,7 @@
 
 # minesweeper-electron
 
-A sh*t copy of minesweeper game.
+A a not so good copy of minesweeper game.
 
 
 
